@@ -1,5 +1,21 @@
 # wg-log - A simple logging library
 
+
+
+## Usage
+
+	const Log = willie.Log;
+	const Exception = willie.Exception;
+
+	const log = Log.getLogger('main');
+
+	if (err) log.warn(new Exception({module:moduleName}, "Failed to start module", err));
+
+	if (err) return callback(new Exception(undefined, "Failed to start new module", err));
+
+
+
+
 ## Logging
 
 We're using [Bunyan](https://github.com/trentm/node-bunyan) for logging. This is wrapped into the wg ```Log``` object.
@@ -8,9 +24,14 @@ To get a logger, simply call
 
 	const log = Log.getLogger("MyLoggerName");
 
-### Logging configuration
+Loggers support the standard ```debug```, ```info```, ```warn```, ```error``` methods.
 
-Configuration is done through a file called wg-loggers.json in the process working directory.
+
+
+
+## Logging configuration
+
+Configuration is done through a file called ```wg-loggers.json``` in the process working directory.
 The configuration object contains the following sections
 
 * streams which describes where log are sent
@@ -19,4 +40,13 @@ The configuration object contains the following sections
 Currently, only the ```graylog``` stream type is supported. It is configured with the graylog2 server host and port, and is will send data to a UDP GELF input stream on this host/port
 
 
+
+
 ## Exceptions
+
+The ```Exception``` object is a simple generic exception object, supporting:
+
+* To store attribute values
+* Add an exception message
+* Chain a cause exception (or error)
+
