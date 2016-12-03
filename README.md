@@ -33,23 +33,32 @@ The ```Exception``` object is a simple generic exception object, supporting:
 
 
 
-## Automatic configuration
-
-Configuration is done through a file called ```wg-loggers.json``` in the process working directory.
-The configuration object contains the following sections
-
-* streams which describes where log are sent
-* loggers which describes the configuration of each named logger
-
-Currently, only the ```graylog``` stream type is supported. It is configured with the graylog2 server host and port, and is will send data to a UDP GELF input stream on this host/port
-
-
-## Programmatic configuration
+## Configuration
 
 Loggers can be configured programmatically as follows
 
 	const Log = require('wg-log').Log;
-	Log.configure("logger-name", {
+	const log = Log.getLogger("logger-name");
+	log.configure({
 		level:["debug"|"info"|"warn"|"error"]
-	});
+	};
+
+Alternatively, configuration can be made through a configuration file
+
+	const Log = require('wg-log').Log;
+	return Log.configure(__dirname + "/loggers-config.json", function(err) {
+		...
+
+Where the configuration file will contain configuration options for all loggers
+
+	{
+	  "loggers": {
+	      "core:web":             { "level": "info" }, 
+	      "photos:exif":          { "level": "debug" },
+	      "photos:web":           { "level": "info" }, 
+	      "photos:scanner":       { "level": "warn" }
+	  }
+	}
+
+
 
