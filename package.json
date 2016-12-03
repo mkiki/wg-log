@@ -1,32 +1,22 @@
 {
-  "name": "wilgeforte",
+  "name": "wg-log",
   "version": "2.0.0",
-  "description": "A logging librar",
+  "description": "A logging library",
   "author": "Alexandre Morin <aggmorin@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "debug": "iron-node index.js",
     "debug-mocha": "iron-node node_modules/mocha/bin/_mocha"
   },
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "ssh://loulex.com/var/git/wg-log.git"
+    "url": "https://github.com/mkiki/wg-log.git"
   },
   "dependencies": {
-    "bunyan": "~1.5.1",
-    "gelf-stream": "~1.1.1",
-    "gelfling": "^0.3.1"
+    "bunyan": "~1.5.1"
   },
   "devDependencies": {
-    "del": "~2.2.2",
-    "gulp": "~3.9.1",
-    "gulp-util": "~3.0.7",
-    "gulp-gzip": "~1.4.0",
-    "gulp-tar": "~1.9.0",
-    "mocha": "~2.3.4",
-    "uuid": "~2.0.3"
+    "mocha": "~2.3.4"
   }
 }

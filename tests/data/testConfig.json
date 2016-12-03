@@ -1,0 +1,8 @@
+{
+  "loggers": {
+      "core:web":             { "level": "info" }, 
+      "photos:exif":          { "level": "debug" },
+      "photos:web":           { "level": "info" }, 
+      "photos:scanner":       { "level": "warn" }
+  }
+}

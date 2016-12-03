@@ -1,15 +1,15 @@
 /**
- * wg-log - exception tests
+ * wg-log - Exception unit tests
  */
 // (C) Alexandre Morin 2015 - 2016
 
-var assert = require('assert');
+const assert = require('assert');
+const Log = require('../lib/log.js');
+const Exception = require('../lib/exception.js');
+  
+describe('Testing exceptions', function() {
 
-describe('exception', function() {
-
-  const Log = require('../lib/log.js');
-  const Exception = require('../lib/exception.js');
-  const log = Log.getLogger('wg-log:exception::tests');
+  const log = Log.getLogger('wg-log::exception::tests');
 
   it('Should not fail', function(done) {
     var cause = new Exception({count:3}, "Cannot open file");
