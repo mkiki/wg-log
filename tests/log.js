@@ -56,6 +56,13 @@ describe('Testing loggers', function() {
     return done();
   });
 
+  it('Should shutdown the logging system', function(done) {
+    return Log.shutdown(function(err) {
+      if (err) return done(err);
+      return done();
+    });
+  });
+
 });
 
 
